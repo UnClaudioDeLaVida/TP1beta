@@ -3,38 +3,44 @@ import java.util.Scanner;
 
 public class TP1 {
     Scanner teclado=new Scanner(System.in);
-    public void Ej1() {        
-        int [] numeros = new int[3];
+    public void mostrarEj1() {        
+        int [] numerosIngresados = new int[3];
         int cuentaDiferentes = 0;
         int sumoNumeros = 0;
         System.out.println("___Ingrese 3 números___");
         for(int i = 0; i < 3; i++) {
             System.out.println("Ingrese número "+(i+1)+": ");
-            /*Quedaría mejor así con un print para que no salte de línea cada vez que pido un número
-            pero no me lo toma:
-            System.out.print("Ingrese número "+(i+1)+": ");*/
-            numeros[i]=teclado.nextInt();
-            sumoNumeros+=numeros[i];
+            /*Quedaría mejor así con un print para que no salte de línea cada vez que pido un número, o sea
+            System.out.print("Ingrese número "+(i+1)+": ");
+            Pero lo hago y no se muestra en consola ese String que le mando como parámetro
+            Salta directamente a la línea del ingreso por teclado*/
+            numerosIngresados[i]=teclado.nextInt();
+            sumoNumeros+=numerosIngresados[i];
         }
-        if (numeros[0]!=numeros[1]) {
+        if (numerosIngresados[0]!=numerosIngresados[1]) {
             cuentaDiferentes++;
         }
-        if (numeros[0]!=numeros[2]) {
+        if (numerosIngresados[0]!=numerosIngresados[2]) {
             cuentaDiferentes++;
         }
-        if (numeros[1]!=numeros[2]) {
+        if (numerosIngresados[1]!=numerosIngresados[2]) {
             cuentaDiferentes++;
         }
+        //todo eso de arriba tiene como resultados posibles para cuentaDiferente 0, 2 o 3.
         for (int i = 0; i < 2; i++) {
             for (int j = i+1; j < 3; j++) {
                 int aux;
-                if (numeros[i]>numeros[j]){
-                    aux = numeros[i];
-                    numeros[i] = numeros[j];
-                    numeros[j] = aux;
+                if (numerosIngresados[i]>numerosIngresados[j]){
+                    aux = numerosIngresados[i];
+                    numerosIngresados[i] = numerosIngresados[j];
+                    numerosIngresados[j] = aux;
                 }
             }
         }
+        /*el ordenamiento (burbuja, de menor a mayor) lo voy a usar para el del producto
+        entre el menor y el mayor, así el menor queda en la posición 0 y el mayor en la 2
+        Y directamente hago el producto entre numeros[0] y numeros[2]. También lo uso para
+        ver si el restante (en posicion 1 del vector) es mútiplo de 3*/
         if (cuentaDiferentes==0){
             System.out.println("No hay números diferentes");
         }
@@ -42,50 +48,69 @@ public class TP1 {
             System.out.println("Hay "+cuentaDiferentes+" números distintos");
         }
         System.out.println("El promedio da "+((float) sumoNumeros)/3);
+        //Arriba divido por 3 al casteo a float de ese int
         System.out.println("La suma de los números da "+sumoNumeros);
-        System.out.println("El producto del menor por el mayor da "+numeros[0]*numeros[2]);
-        if (numeros[1]%3==0){
+        System.out.println("El producto del menor por el mayor da "+numerosIngresados[0]*numerosIngresados[2]);
+        if (numerosIngresados[1]%3==0){
             System.out.println("El número del medio es múltiplo de 3");
         }
         else{
             System.out.println("El número del medio no es múltiplo de 3");
         }
-    }//cierra método Ej1
-    public void Ej2(){
-        int anio;
-        System.out.print("Ingrese el año en cuestion: ");
-        anio = teclado.nextInt();
-        if (anio%400==0) {
-            System.out.println(anio + " es año bisiesto!");
-        }
-        else
-            if (anio%4==0) {
-                if (anio%100==0)
-                    System.out.println(anio + " no es año bisiesto!");
-                else
-                    System.out.println(anio + " es año bisiesto!");
-        }   else 
-                System.out.println(anio + " no es año bisiesto!");
-    }//cierra método Ej2
-    public void Ej3(){
-        int numero;
-        long factorial = 1;
+    }//cierra método mostrarEj1
+    public void mostrarEj2(){
+        int anioIngresado;
+        do {
+            System.out.println("Ingrese el año en cuestión para saber si es bisiesto:");
+            anioIngresado = teclado.nextInt();
+            if (anioIngresado>0){
+                if (anioIngresado%400==0) {
+                System.out.println(anioIngresado + " es año bisiesto!");
+                }
+                else if (anioIngresado%4==0) {
+                    if (anioIngresado%100==0)
+                        System.out.println(anioIngresado + " no es año bisiesto!");
+                    else
+                        System.out.println(anioIngresado + " es año bisiesto!");
+                } else 
+                    System.out.println(anioIngresado + " no es año bisiesto!");
+            } else
+                System.out.println("El año debe ser un número positivo!!");
+        } while (anioIngresado < 0);
+        
+    }//cierra método mostrarEj2
+    public void mostrarEj3(){
+        int numeroIngresado;
+        long calculaFactorial = 1;
         do {
             System.out.println("¿De qué número te digo el factorial?: ");
-            numero =  teclado.nextInt();
-            if (numero > 0) {
-                for (int i = 1; i <= numero; i++) {
-                factorial = factorial * i;
+            numeroIngresado =  teclado.nextInt();
+            if (numeroIngresado > 0) {
+                for (int i = 1; i <= numeroIngresado; i++) {
+                calculaFactorial = calculaFactorial * i;
                 }
             }
             else {
-                {
-                    System.out.println("Necesitamos un número positivo para el factorial!");
-                    System.out.println("¿De qué número te digo el factorial?: ");
-                    numero =  teclado.nextInt();
-                }
+                System.out.println("Necesitamos un número positivo para el factorial!");
             }
-        } while (numero < 1);
-        System.out.println("El factorial de "+ numero + " es "+ factorial);
-    }
+        } while (numeroIngresado < 1);
+        System.out.println("El factorial de "+ numeroIngresado + " es "+ calculaFactorial);
+    }//cierra método mostrarEj3
+    public void mostrarEj4(){
+        int numeroIngresado;
+        do {
+            System.out.println("¿De qué número querés saber sus divisores?");
+            numeroIngresado = teclado.nextInt();
+            if (numeroIngresado > 0){
+                System.out.println("Sus divisores son los siguientes:");
+                /*empiezo desde 1 para evitar dividir por 0. Considero la posibilidad de
+                tomar al número ingresado como divisor de si mismo, por eso <= en vez de <*/
+                for (int i = 1; i <= numeroIngresado; i++) {
+                    if (numeroIngresado % i == 0)
+                        System.out.print(i + " ");
+                }
+            } else
+                System.out.println("El número debe ser positivo!");
+        }while (numeroIngresado<0);
+    }//cierra método mostrarEj4
 }//cierra clase TP1
