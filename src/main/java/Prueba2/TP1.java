@@ -6,7 +6,6 @@ public class TP1 {
         Scanner teclado=new Scanner(System.in);
         int [] numeros = new int[3];
         int cuentaDiferentes = 0;
-        float promedio;
         int sumoNumeros = 0;
         System.out.println("___Ingrese 3 números___");
         for(int i = 0; i < 3; i++) {
