@@ -64,7 +64,28 @@ public class TP1 {
                     System.out.println(anio + " no es año bisiesto!");
                 else
                     System.out.println(anio + " es año bisiesto!");
-        } else 
+        }   else 
                 System.out.println(anio + " no es año bisiesto!");
+    }//cierra método Ej2
+    public void Ej3(){
+        int numero;
+        long factorial = 1;
+        do {
+            System.out.println("¿De qué número te digo el factorial?: ");
+            numero =  teclado.nextInt();
+            if (numero > 0) {
+                for (int i = 1; i <= numero; i++) {
+                factorial = factorial * i;
+                }
+            }
+            else {
+                {
+                    System.out.println("Necesitamos un número positivo para el factorial!");
+                    System.out.println("¿De qué número te digo el factorial?: ");
+                    numero =  teclado.nextInt();
+                }
+            }
+        } while (numero < 1);
+        System.out.println("El factorial de "+ numero + " es "+ factorial);
     }
 }//cierra clase TP1
