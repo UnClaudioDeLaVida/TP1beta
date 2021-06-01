@@ -6,6 +6,6 @@ public class Main {
         punto.mostrarEj2();
         punto.mostrarEj3();
         punto.mostrarEj4();
-        
+        punto.mostrarEj5();
     }
 }

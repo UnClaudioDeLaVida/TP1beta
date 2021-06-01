@@ -113,4 +113,18 @@ public class TP1 {
                 System.out.println("El número debe ser positivo!");
         }while (numeroIngresado<0);
     }//cierra método mostrarEj4
+    public void mostrarEj5(){
+        int tablaDel;
+        do {
+        System.out.println("¿De qué número querés saber las tablas?");
+        tablaDel = teclado.nextInt();
+            if ((tablaDel>=1)&&(tablaDel<=10)) {
+                for (int i = 1; i <= 10; i++) {
+                    System.out.println(tablaDel + " x " + i + " = "+ tablaDel*i);
+                }
+            } else{
+                System.out.println("Este programa muestra las tablas de números del 1 al 10. Intentá con otro número...");
+            }
+        } while ((tablaDel<1)||(tablaDel>10));
+    }
 }//cierra clase TP1
