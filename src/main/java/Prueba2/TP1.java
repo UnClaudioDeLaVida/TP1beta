@@ -185,13 +185,30 @@ public class TP1 {
     }//cierra método mostrarEj7()
 
     public void mostrarEj8() {
-        int dimensionArray;
-        int numerosIngresados [] = new int [20];
+        int dimensionArray, numeroMinimo, numeroMaximo;
+        numeroMinimo = 0;
+        numeroMaximo = 0;
+        int sumaNumeros = 0;
+        int[] numerosIngresados = new int[20];
         System.out.println("¿Cuántos números vas a ingresar?");
         dimensionArray = teclado.nextInt();
         for (int i = 0; i < dimensionArray; i++) {
             System.out.println((i + 1) + ") ");
             numerosIngresados[i] = teclado.nextInt();
+            if (i == 0){
+                numeroMinimo = numerosIngresados[i];
+                numeroMaximo = numerosIngresados[i];
+            } else{
+                if (numerosIngresados[i] > numeroMaximo)
+                    numeroMaximo = numerosIngresados[i];
+                if (numerosIngresados[i] < numeroMinimo)
+                    numeroMinimo = numerosIngresados[i];
+            }
         }
+        for (int i = numeroMinimo; i <= numeroMaximo; i++) {
+            sumaNumeros+=i;
+        }
+        //sumaNumeros = (numeroMinimo + numeroMaximo) * (1 + numeroMaximo - numeroMinimo) / 2;
+        System.out.println("La suma entre los números comprendidos entre el mínimo " + numeroMinimo + " y el máximo " + numeroMaximo + " incluidos ambos da " + sumaNumeros);
     }//cierra método mostrarEj8()
 }//cierra clase TP1
