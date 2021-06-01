@@ -186,10 +186,12 @@ public class TP1 {
 
     public void mostrarEj8() {
         int dimensionArray;
+        int numerosIngresados [] = new int [20];
         System.out.println("¿Cuántos números vas a ingresar?");
         dimensionArray = teclado.nextInt();
         for (int i = 0; i < dimensionArray; i++) {
             System.out.println((i + 1) + ") ");
+            numerosIngresados[i] = teclado.nextInt();
         }
     }//cierra método mostrarEj8()
 }//cierra clase TP1
