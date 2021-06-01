@@ -57,7 +57,7 @@ public class TP1 {
         else{
             System.out.println("El número del medio no es múltiplo de 3");
         }
-    }//cierra método mostrarEj1
+    }//cierra método mostrarEj1()
     public void mostrarEj2(){
         int anioIngresado;
         do {
@@ -78,7 +78,7 @@ public class TP1 {
                 System.out.println("El año debe ser un número positivo!!");
         } while (anioIngresado < 0);
         
-    }//cierra método mostrarEj2
+    }//cierra método mostrarEj2()
     public void mostrarEj3(){
         int numeroIngresado;
         long calculaFactorial = 1;
@@ -95,7 +95,7 @@ public class TP1 {
             }
         } while (numeroIngresado < 1);
         System.out.println("El factorial de "+ numeroIngresado + " es "+ calculaFactorial);
-    }//cierra método mostrarEj3
+    }//cierra método mostrarEj3()
     public void mostrarEj4(){
         int numeroIngresado;
         do {
@@ -112,7 +112,7 @@ public class TP1 {
             } else
                 System.out.println("El número debe ser positivo!");
         }while (numeroIngresado<0);
-    }//cierra método mostrarEj4
+    }//cierra método mostrarEj4()
     public void mostrarEj5(){
         int tablaDel;
         do {
@@ -126,5 +126,8 @@ public class TP1 {
                 System.out.println("Este programa muestra las tablas de números del 1 al 10. Intentá con otro número...");
             }
         } while ((tablaDel<1)||(tablaDel>10));
+    }//cierra método mostrarEj5()
+    public void mostrarEj6(){
+        
     }
 }//cierra clase TP1
