@@ -2,8 +2,8 @@ package Prueba2;
 import java.util.Scanner;
 
 public class TP1 {
-    public void Ej1() {
-        Scanner teclado=new Scanner(System.in);
+    Scanner teclado=new Scanner(System.in);
+    public void Ej1() {        
         int [] numeros = new int[3];
         int cuentaDiferentes = 0;
         int sumoNumeros = 0;
@@ -52,6 +52,19 @@ public class TP1 {
         }
     }//cierra método Ej1
     public void Ej2(){
-        
+        int anio;
+        System.out.print("Ingrese el año en cuestion: ");
+        anio = teclado.nextInt();
+        if (anio%400==0) {
+            System.out.println(anio + " es año bisiesto!");
+        }
+        else
+            if (anio%4==0) {
+                if (anio%100==0)
+                    System.out.println(anio + " no es año bisiesto!");
+                else
+                    System.out.println(anio + " es año bisiesto!");
+        } else 
+                System.out.println(anio + " no es año bisiesto!");
     }
 }//cierra clase TP1
