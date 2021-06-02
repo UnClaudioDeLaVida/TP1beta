@@ -195,20 +195,48 @@ public class TP1 {
         for (int i = 0; i < dimensionArray; i++) {
             System.out.println((i + 1) + ") ");
             numerosIngresados[i] = teclado.nextInt();
-            if (i == 0){
+            if (i == 0) {
                 numeroMinimo = numerosIngresados[i];
                 numeroMaximo = numerosIngresados[i];
-            } else{
-                if (numerosIngresados[i] > numeroMaximo)
+            } else {
+                if (numerosIngresados[i] > numeroMaximo) {
                     numeroMaximo = numerosIngresados[i];
-                if (numerosIngresados[i] < numeroMinimo)
+                }
+                if (numerosIngresados[i] < numeroMinimo) {
                     numeroMinimo = numerosIngresados[i];
+                }
             }
         }
         for (int i = numeroMinimo; i <= numeroMaximo; i++) {
-            sumaNumeros+=i;
+            sumaNumeros += i;
         }
         //sumaNumeros = (numeroMinimo + numeroMaximo) * (1 + numeroMaximo - numeroMinimo) / 2;
         System.out.println("La suma entre los números comprendidos entre el mínimo " + numeroMinimo + " y el máximo " + numeroMaximo + " incluidos ambos da " + sumaNumeros);
     }//cierra método mostrarEj8()
+
+    public void mostrarEj9() {
+        int radioCirculo;
+        do {
+            System.out.println("Ingrese el radio del círculo (número entero");
+            radioCirculo = teclado.nextInt();
+            if (radioCirculo < 0)
+                System.out.println("El radio debe ser un número positivo");
+        } while (radioCirculo < 0);
+        System.out.println("El diámetro es "+ radioCirculo * 2 + ". La circunferencia es " + Math.PI*radioCirculo * 2 + ". El área es " + Math.PI * radioCirculo * radioCirculo);
+    }//cierra método mostrarEj9()
+    
+    public void mostrarEj10() {
+        final int listaEmpleados [][] = {{42, 3500},{28, 4000},{50, 4200},{33, 6000},{25, 7000}};
+        final float sueldoBonificado = (float) 1.5;
+        int [] sueldoBruto = new int [5];
+        for (int numeroEmpleado = 0; numeroEmpleado < 5; numeroEmpleado++) {
+            if (listaEmpleados[numeroEmpleado][0] <= 40){
+                sueldoBruto[numeroEmpleado] = listaEmpleados[numeroEmpleado][0]*listaEmpleados[numeroEmpleado][1];
+            } else {
+                sueldoBruto[numeroEmpleado] = (int) (40*listaEmpleados[numeroEmpleado][1] + (listaEmpleados[numeroEmpleado][0]-40)*listaEmpleados[numeroEmpleado][1]*sueldoBonificado);
+            }
+            System.out.println("Empleado " + (numeroEmpleado + 1) + ": Horas trabajadas: " + listaEmpleados[numeroEmpleado][0] + ". Sueldo por hora: " + listaEmpleados[numeroEmpleado][1]);
+            System.out.println("Sueldo bruto: " + sueldoBruto[numeroEmpleado]);
+        }
+    }//cierra método mostrarEj10()
 }//cierra clase TP1

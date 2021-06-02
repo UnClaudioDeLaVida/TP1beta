@@ -9,6 +9,8 @@ public class Main {
         //punto.mostrarEj5();
         //punto.mostrarEj6();
         //punto.mostrarEj7();
-        punto.mostrarEj8();
+        //punto.mostrarEj8();
+        //punto.mostrarEj9();
+        punto.mostrarEj10();
     }
 }
